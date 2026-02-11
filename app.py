@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from model import predict_url
+import os  # Required for dynamic port in Render
 
 app = Flask(__name__)
 
@@ -12,4 +13,8 @@ def home():
     return render_template("index.html", result=result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Get port from environment (Render assigns dynamically)
+    port = int(os.environ.get("PORT", 5000))
+    # Host 0.0.0.0 required for Render to make app accessible externally
+    app.run(host="0.0.0.0", port=port, debug=True)
+
