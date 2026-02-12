@@ -16,5 +16,5 @@ if __name__ == "__main__":
     # Get port from environment (Render assigns dynamically)
     port = int(os.environ.get("PORT", 5000))
     # Host 0.0.0.0 required for Render to make app accessible externally
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port)
 
